@@ -57,6 +57,9 @@ class DistanceSurfaceMeasure extends DistanceMeasure {
         sampleWindowPoints[jj],
       );
     }
+
+    this.ngDistance = resultDistance;
+
     return resultDistance;
   }
 

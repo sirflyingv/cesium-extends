@@ -68,14 +68,14 @@ const Map: React.FC<MapProps> = () => {
       measure.current = new Tool(viewer.current, {
         units: 'kilometers',
         locale: {
-          start: '起点',
-          area: '面积',
-          total: '总计',
+          start: 'start',
+          area: 'area',
+          total: 'total',
           formatLength: (length, unitedLength) => {
             if (length < 1000) {
-              return length + '米';
+              return length + 'm';
             }
-            return unitedLength + '千米';
+            return unitedLength + 'km';
           },
           formatArea: (area, unitedArea) => {
             if (area < 1000000) {

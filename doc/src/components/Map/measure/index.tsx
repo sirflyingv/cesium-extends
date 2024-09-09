@@ -66,6 +66,9 @@ const Map: React.FC<MapProps> = () => {
 
     if (newToolName && Tool) {
       measure.current = new Tool(viewer.current, {
+        ngOnMeasureComplete: (val: any) => {
+          console.log('result', val);
+        },
         units: 'kilometers',
         locale: {
           start: 'start',

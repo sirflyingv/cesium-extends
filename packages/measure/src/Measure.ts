@@ -56,6 +56,7 @@ export type MeasureOptions = {
   /** defaults to kilometers */
   units?: MeasureUnits;
   onEnd?: (entity: Entity) => void;
+  ngOnMeasureComplete?: () => void;
   drawerOptions?: Partial<DrawOption>;
   /**
    * @example 
@@ -111,6 +112,7 @@ export default class Measure {
 
   ngDistance: number;
   ngArea: number;
+  ngOnComplete: (val: any) => void;
 
   /**
    * 量算工具
@@ -140,10 +142,17 @@ export default class Measure {
 
     this.ngDistance = 0;
     this.ngArea = 0;
+    this.ngOnComplete = options.ngOnMeasureComplete || (() => {});
 
     this.drawer = new Drawer(viewer, {
       onComplete: () => {
-        console.log('oppa!', this.ngDistance, this.ngArea);
+        const result = {
+          type: this.drawer._type === 'POLYLINE' ? 'distance' : 'area',
+          value:
+            this.drawer._type === 'POLYLINE' ? this.ngDistance : this.ngArea,
+        };
+        // console.log('oppa!', this.drawer);
+        this.ngOnComplete(result);
       },
       sameStyle: true,
       terrain: true,

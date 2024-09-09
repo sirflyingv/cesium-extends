@@ -59,7 +59,7 @@ class DistanceMeasure extends Measure {
           this._units,
         ).toFixed(2);
 
-        this.testDis = unitedDistance;
+        this.ngDistance = unitedDistance;
 
         label.text =
           (i === num - 1 ? `${this._locale.total}: ` : '') +

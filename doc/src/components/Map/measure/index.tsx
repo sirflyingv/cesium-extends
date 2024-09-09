@@ -79,15 +79,16 @@ const Map: React.FC<MapProps> = () => {
           },
           formatArea: (area, unitedArea) => {
             if (area < 1000000) {
-              return area + '平方米';
+              return area + 'm2';
             }
-            return unitedArea + '平方千米';
+            return unitedArea + 'km2';
           },
         },
         drawerOptions: {
           tips: {
-            init: '点击绘制',
-            start: '左键添加点，右键移除点，双击结束绘制',
+            init: 'click to start',
+            start:
+              'left click to place point, right click to remove point, double click to finish',
           },
         },
       });

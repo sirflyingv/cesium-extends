@@ -52,11 +52,14 @@ class DistanceMeasure extends Measure {
 
         distance += newDis;
         distance = +distance.toFixed(2);
+
         const unitedDistance = +convertLength(
           distance,
           'meters',
           this._units,
         ).toFixed(2);
+
+        this.testDis = unitedDistance;
 
         label.text =
           (i === num - 1 ? `${this._locale.total}: ` : '') +

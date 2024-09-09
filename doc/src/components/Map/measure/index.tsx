@@ -25,22 +25,22 @@ const measureOptions: {
   tool: typeof Measure;
 }[] = [
   {
-    label: '距离测量',
+    label: 'Distance',
     key: 'Distance',
     tool: DistanceMeasure,
   },
   {
-    label: '距离测量(贴地)',
+    label: 'SurfaceDistance',
     key: 'SurfaceDistance',
     tool: DistanceSurfaceMeasure,
   },
   {
-    label: '面积测量',
+    label: 'Area',
     key: 'Area',
     tool: AreaMeasure,
   },
   {
-    label: '面积测量(贴地)',
+    label: 'SurfaceArea',
     key: 'SurfaceArea',
     tool: AreaSurfaceMeasure,
   },
@@ -136,7 +136,7 @@ const Map: React.FC<MapProps> = () => {
             {item.label}
           </button>
         ))}
-        <button onClick={clear}>清除</button>
+        <button onClick={clear}>Cancel</button>
       </div>
     </div>
   );

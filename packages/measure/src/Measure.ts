@@ -109,6 +109,8 @@ export default class Measure {
   drawer: Drawer;
   private _onEnd: ((entity: Entity) => void) | undefined;
 
+  testDis: number;
+
   /**
    * 量算工具
    * @param viewer
@@ -135,7 +137,12 @@ export default class Measure {
     this.mouseTooltip = new MouseTooltip(viewer);
     this.mouseTooltip.hide();
 
+    this.testDis = 0;
+
     this.drawer = new Drawer(viewer, {
+      onComplete: () => {
+        console.log('oppa!', this.testDis);
+      },
       sameStyle: true,
       terrain: true,
       ...options.drawerOptions,

@@ -101,6 +101,8 @@ export interface DrawOption {
     /** 默认为 '' */
     end?: string | Element;
   };
+
+  onComplete?: any;
 }
 
 export type StartOption = {

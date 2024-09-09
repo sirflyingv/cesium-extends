@@ -118,6 +118,8 @@ export default class Drawer {
   mouseTooltip: MouseTooltip;
   private _tips: Required<DrawOption['tips']>;
 
+  testOnComplete: any;
+
   get status(): Status {
     return this._status;
   }
@@ -132,6 +134,8 @@ export default class Drawer {
 
   constructor(viewer: Viewer, options?: Partial<DrawOption>) {
     this._option = defaultValue(options, {});
+
+    this.testOnComplete = options?.onComplete;
 
     if (!viewer) throw new Error('请输入Viewer对象！');
 
@@ -353,6 +357,9 @@ export default class Drawer {
       this.$AddedInstance.push(this.$Instance);
     }
     this._viewer.canvas.style.cursor = 'default';
+
+    console.log('_complete');
+    this.testOnComplete();
   }
 
   private _isSupport(type: string) {

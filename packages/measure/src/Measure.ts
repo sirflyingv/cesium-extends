@@ -110,6 +110,7 @@ export default class Measure {
   private _onEnd: ((entity: Entity) => void) | undefined;
 
   ngDistance: number;
+  ngArea: number;
 
   /**
    * 量算工具
@@ -138,10 +139,11 @@ export default class Measure {
     this.mouseTooltip.hide();
 
     this.ngDistance = 0;
+    this.ngArea = 0;
 
     this.drawer = new Drawer(viewer, {
       onComplete: () => {
-        console.log('oppa!', this.ngDistance);
+        console.log('oppa!', this.ngDistance, this.ngArea);
       },
       sameStyle: true,
       terrain: true,

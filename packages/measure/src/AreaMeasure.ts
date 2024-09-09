@@ -44,6 +44,9 @@ class AreaMeasure extends Measure {
     const label = this._labels.get(0);
     const area = +this.getArea(positions).toFixed(2);
     const unitedArea = +convertArea(area, 'meters', this._units).toFixed(2);
+
+    this.ngArea = unitedArea;
+
     label.text = `${this._locale.area}: ${this._locale.formatArea(
       area,
       unitedArea,
